@@ -15,6 +15,38 @@
     <title>Task Manager</title>
 </head>
 <body>
+
+    <header>
+        <!-- Top navbar -->
+        <nav class="nav-extended text-shadow blue lighten-2">
+            <div class="nav-wrapper">
+                <a href="{{ url_for('get_tasks') }}" class="brand-logo">Task Manager</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('get_tasks') }}">Home</a></li>
+                    <li><a href="sass.html">Profile</a></li>
+                    <li><a href="sass.html">New Task</a></li>
+                    <li><a href="sass.html">Manage Categories</a></li>
+                    <li><a href="sass.html">Logout</a></li>
+                    <li><a href="sass.html">Login</a></li>
+                    <li><a href="sass.html">Register</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Mobile side-navbar -->
+        <ul class="sidenav" id="mobile-demo">
+            <li><h4 class="center-align light-blue-text text-darken-4">Task Manager</h4></li>
+            <li><a href="{{ url_for('get_tasks') }}">Home</a></li>
+            <li><a href="sass.html">Profile</a></li>
+            <li><a href="sass.html">New Task</a></li>
+            <li><a href="sass.html">Manage Categories</a></li>
+            <li><a href="sass.html">Logout</a></li>
+            <li><a href="sass.html">Login</a></li>
+            <li><a href="sass.html">Register</a></li>
+        </ul>
+    </header>
+
     {% block content %}
     {% endblock %}
 
