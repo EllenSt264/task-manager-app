@@ -7,3 +7,8 @@ $(document).ready(function () {
 $(document).ready(function () {
   $('.collapsible').collapsible();
 });
+
+// Tooltip
+$(document).ready(function(){
+  $('.tooltipped').tooltip();
+});
