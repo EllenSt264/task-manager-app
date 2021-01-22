@@ -1,3 +1,9 @@
-$(document).ready(function(){
-    $('.sidenav').sidenav({edge: "right"});
-  });
+// Navbar
+$(document).ready(function () {
+  $('.sidenav').sidenav({ edge: "right" });
+});
+
+// Accordian
+$(document).ready(function () {
+  $('.collapsible').collapsible();
+});
