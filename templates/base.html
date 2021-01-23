@@ -27,7 +27,18 @@
                     {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a href="{{ url_for('add_task') }}">New Task</a></li>
-                        <li><a href="sass.html">Manage Categories</a></li>
+                        <!-- Only display this link for Admin Users -->
+                        <!-- A better way to do this would be by using a key/value pair,
+                                similar to is_urgent you could use is_admin.
+                                That way you are able to have more than one user,
+                                by not relying on the username itself.
+                                
+                            You would want to include these checks in the 
+                            app.py file so users cannot brute-force their way
+                            onto the page. -->
+                        {% if session.user|lower == "admin"|lower %}
+                            <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
+                        {% endif %}
                         <li><a href="{{ url_for('logout') }}">Logout</a></li>
                     {% else %}
                         <li><a href="{{ url_for('login') }}">Login</a></li>
@@ -45,7 +56,9 @@
             {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                 <li><a href="{{ url_for('add_task') }}">New Task</a></li>
-                <li><a href="sass.html">Manage Categories</a></li>
+                {% if session.user|lower == "admin"|lower %}
+                    <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
+                {% endif %}
                 <li><a href="{{ url_for('logout') }}">Logout</a></li>
             {% else %}
                 <li><a href="{{ url_for('login') }}">Login</a></li>
